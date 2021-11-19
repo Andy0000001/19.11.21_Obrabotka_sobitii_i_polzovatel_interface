@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuN</title>
+
+    <style>
+        #gun, #bullet, #aim, #scoreTable {
+            position: absolute;
+
+        }
+
+        #bullet, #aim {
+            border-radius: 50%;
+        }
+
+        #gun{
+            background-color: navy;
+            height: 30px;
+            width: 50px;
+            left: 30px;
+            top: 50px;
+        }
+
+        #bullet{
+            background-color: olive;
+            width: 20px;
+            height: 20px;
+            left: 50px;
+            top: 50px;
+            z-index: -1;
+        }
+
+        #aim{
+            background-color: red;
+            height: 30px;
+            width: 30px;
+            left: 230px;
+            top: 45px;
+        }
+    </style>
+</head>
+<body onkeydown="checkKey(event)">
+    <h2>Press space</h2>
+    <div id="gun"></div>
+    <div id ="bullet"></div>
+    <div id = "aim"></div>
+    <h3 id = "scoreTable"> Score: 0</h3>
+    
+    <script>
+    var bulletX = 50, gameScore = 0;
+    var onFly = false;
+    function checkKey(e){   // выстрел
+        console.log(e.code);
+        if(e.code == "Space" && !onFly ){ // ghjdthrf tckb rjl rkfdbib 'nj gjtk b yt kbnbn' nj moveBullet
+            onFly = true;
+            moveBullet()
+        }
+        if (e.code == "Escape" && onFly){
+        onFly = false;
+        //bulletX = 50;                           // что бы пуля возобнавляла полет сначала раскоментить
+        //bullet.style.left = bulletX + "px"; // что бы пуля возобнавляла полет сначала раскоментить
+        }
+    }
+    function moveBullet(){ // true  // полет
+        if(onFly){
+            bulletX += 5;
+            if(bulletX >= 230){
+            bulletX = 50;
+            onFly = false; //выключаем в не палет
+            gameScore++;
+            scoreTable.innerText = "Score: " + gameScore; // innerText - отображает текст внутри тега
+        } 
+
+        else
+            setTimeout(moveBullet, 50);
+
+        bullet.style.left = bulletX + "px";
+    }
+}
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

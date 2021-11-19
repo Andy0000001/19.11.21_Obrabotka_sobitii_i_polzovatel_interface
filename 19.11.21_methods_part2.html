@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #counter{
+        margin-left:20%;
+        margin-top: 10%;
+        width: auto;
+        height: auto;
+        display: flex;
+        }
+        #num, #up, #down, #inputN, #reset {
+            border: 2px solid black;
+        }
+        #num{
+            text-align: center;
+            font-size: 25pt;
+            border-radius: 5 0 0 5;
+            padding: 10 0 0 5;
+        }
+        #up{
+            padding: 2 5 0 5;
+            width: auto;
+            height: 25px;
+            border-radius: 0 5 0 0;
+        }
+        #down{
+            padding: 2 5 0 5;
+            width: auto;
+            height: 25px;
+            border-radius: 0 0 5 0;
+        }
+        #reset{
+            margin-left: 10px;
+            border-radius: 5px;
+            height: auto;
+            padding: 20 5 0 5;
+            
+        }
+        #inputN{
+            margin-left: 20%;
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 100px;
+            text-align: center;
+            padding: 5px;
+        }
+        #up::selection, #down::selection{
+        background: transparent;
+        } 
+        #up, #down, #inputN, #reset{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onclick="checkClick(event)">
+    <div id="counter">
+        <div id="num">0</div>
+        <div>
+            <div id="up">Encrease</div>
+            <div id="down">Decrease</div>
+        </div>
+        <div id="reset">Reset</div>
+    </div>
+    <div id="inputN">Input number</div>
+    <script>
+        var n = 0;
+        function checkClick(e){
+            switch(e.target.id){
+                case"up": 
+                n++;
+                num.innerText=n;
+                break;
+                case"down":
+                n--;
+                num.innerText = n;
+                break;
+                case"reset":
+                n = 0;
+                num.innerText = n;
+                break;
+                case"inputN":
+                let m = +prompt("Input new value")
+                if(isNaN(m))
+                    alert("Error! Try input again.");
+                else
+                    n = m;
+                    num.innerText = n;
+            }
+        }
+    </script>
+</body>
+
+</html>
